@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Camila Martinez Toro</title>
+    <meta name="description" content="Página de contacto de Camila Martinez Toro">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navegacion principal -->
+    <header>
+        <nav>
+            <a href="../index.html" class="logo">Camila Martinez Toro</a>
+
+            <ul>
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="sobre_mi.html">Sobre mí</a></li>
+                <li><a href="proyectos.html">Proyectos</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiencias</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Contacto -->
+        <section id="contacto">
+
+            <h1>Contacto</h1>
+
+            <p>
+                Si quieres conocer más sobre mis proyectos o ponerte en contacto
+                conmigo, puedes hacerlo mediante este formulario.
+            </p>
+
+            <!-- Formulario principal -->
+            <form action="#" method="post">
+
+                <div>
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre"
+                        placeholder="Ej: Camila Martinez" required>
+                </div>
+
+                <div>
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" name="correo"
+                        placeholder="camila@gmail.com" required>
+                </div>
+
+                <div>
+                    <label for="motivo">Motivo:</label>
+
+                    <select id="motivo" name="motivo" required>
+                        <option value="" selected disabled>
+                            Selecciona una opción
+                        </option>
+                        <option value="proyecto">Consulta sobre un proyecto</option>
+                        <option value="trabajo">Quieres trabajar conmigo</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="mensaje">Mensaje:</label>
+
+                    <textarea id="mensaje" name="mensaje" rows="5"
+                        placeholder="Escribe tu mensaje aquí..." required></textarea>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="privacidad" name="privacidad" required>
+
+                    <label for="privacidad">
+                        Acepto que mis datos sean utilizados para responder este mensaje.
+                    </label>
+                </div>
+
+                <button type="submit">Enviar mensaje</button>
+
+            </form>
+
+
+            <!-- Comentarios -->
+            <div>
+
+                <h2>Deja un comentario</h2>
+
+                <p>
+                    Puedes dejarme un comentario sobre el portafolio.
+                </p>
+
+                <form action="#" method="post">
+
+                    <div>
+                        <label for="nombreComentario">Tu nombre:</label>
+                        <input type="text" id="nombreComentario"
+                            name="nombreComentario" required>
+                    </div>
+
+                    <div>
+                        <label for="comentario">Comentario:</label>
+
+                        <textarea id="comentario" name="comentario"
+                            rows="4" required></textarea>
+                    </div>
+
+                    <button type="submit">Publicar comentario</button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Pie de pagina -->
+    <footer>
+
+        <p>
+            &copy; 2026 Camila Martinez Toro - Mi portafolio.
+        </p>
+
+        <p>
+            Repositorio:
+            <a href="https://github.com/CamilaMartinez14" target="_blank" rel="noopener">
+                github.com/CamilaMartinez14
+            </a>
+        </p>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
