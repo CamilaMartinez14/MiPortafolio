@@ -1,0 +1,187 @@
+/* ==============================
+   CONFIGURACION GENERAL
+   ============================== */
+
+:root {
+    --color-fondo: #14022a; /* color de fondo que elegi para la pagina */
+    --color-texto: #f5f5f5bc; /* color del texto de la pagina */
+    --color-secundario: #a1a1aa; /* color para textos secundarios */
+    --color-acento: #7c3aed; /* color que usare para algunos detalles */
+    --color-acento-secundario: #c2a1d9de; /* segundo color de acento */
+    --color-borde: rgba(255, 255, 255, 0.1); /* borde suave para algunos elementos */
+}
+
+/* Estilos principales de la pagina */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: georgia, Helvetica, sans-serif;
+}
+
+/* Contenedor principal */
+main {
+    width: 100%;
+}
+
+
+/* ==============================
+   NAVEGACION
+   ============================== */
+
+/* Barra de navegacion */
+header {
+    position: fixed; /* fijo la barra de navegacion en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+/* Contenedor de la navegacion */
+nav {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 15px 25px;
+
+    background: rgba(8, 9, 13, 0.7);
+    border: 1px solid var(--color-borde);
+    border-radius: 50px;
+
+    backdrop-filter: blur(15px);
+}
+
+/* Nombre del portafolio */
+.logo {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Elementos del menu */
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+/* Enlaces del menu */
+nav ul a {
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+nav ul a:hover {
+    color: var(--color-texto);
+}
+
+
+/* ==============================
+   SECCION PRINCIPAL
+   ============================== */
+
+/* Portada principal */
+#inicio {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 120px 8% 80px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+/* Texto superior de la portada */
+#inicio > p:first-child {
+    color: var(--color-acento-secundario);
+    font-size: 0.85rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+/* Titulo principal */
+#inicio h1 {
+    max-width: 900px;
+
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -5px;
+
+    margin-bottom: 35px;
+}
+
+/* Descripcion de la portada */
+#inicio p:nth-of-type(2) {
+    max-width: 600px;
+
+    color: var(--color-secundario);
+    font-size: 1.1rem;
+    line-height: 1.8;
+
+    margin-bottom: 35px;
+}
+
+/* Boton principal */
+#inicio > a {
+    width: fit-content;
+
+    padding: 14px 25px;
+
+    border: 1px solid var(--color-borde);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    transition: 0.3s ease;
+}
+
+/* Efecto del boton */
+#inicio > a:hover {
+    background: var(--color-texto);
+    color: var(--color-fondo);
+}
+
+
+/* ==============================
+   SECCIONES
+   ============================== */
+
+/* Espacio general de las secciones */
+section:not(#inicio) {
+    min-height: 70vh;
+    padding: 120px 8%;
+}
+
+/* Titulos de las secciones */
+section:not(#inicio) h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+    margin-bottom: 25px;
+}
+
+/* Texto de las secciones */
+section:not(#inicio) p {
+    color: var(--color-secundario);
+    max-width: 650px;
+    font-size: 1.1rem;
+}
+
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+/* Pie de pagina */
+footer {
+    padding: 30px 8%;
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-secundario);
+}

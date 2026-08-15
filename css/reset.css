@@ -1,0 +1,50 @@
+/* Reset general de la pagina */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Desplazamiento suave entre las secciones */
+html {
+    scroll-behavior: smooth; /* Hace que el movimiento entre secciones sea suave */
+}
+
+/* Configuracion principal del body */
+body {
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* Ajuste para imagenes y elementos multimedia */
+img,
+picture,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Mantener la misma fuente en los formularios */
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Cursor para los botones */
+button {
+    cursor: pointer;
+}
+
+/* Quitar estilos por defecto de los enlaces */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Quitar los estilos de las listas */
+ul,
+ol {
+    list-style: none;
+}
