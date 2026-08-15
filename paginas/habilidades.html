@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Habilidades | Camila Martinez Toro</title>
+    <meta name="description"
+        content="Tecnologías y herramientas utilizadas durante mi formación en Ingeniería en Informática.">
 
     <link rel="stylesheet" href="../css/reset.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Mis estilos -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -15,49 +22,164 @@
 
     <!-- Navegacion principal -->
     <header>
-        <nav>
-            <a href="../index.html" class="logo">Camila Martinez Toro</a>
+        <nav class="navbar navbar-expand-md" aria-label="Navegación principal">
+            <div class="container">
 
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="sobre_mi.html">Sobre mí</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="habilidades.html">Habilidades</a></li>
-                <li><a href="experiencias.html">Experiencias</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
+                <a class="navbar-brand logo" href="../index.html">
+                    Camila Martinez Toro
+                </a>
+
+                <!-- Boton para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Opciones del menu -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="sobre_mi.html">Sobre mí</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="proyectos.html">Proyectos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="habilidades.html">Habilidades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="experiencias.html">Experiencias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
         </nav>
     </header>
+
 
     <main>
 
         <!-- Habilidades -->
-        <section id="habilidades">
+        <section id="habilidades" aria-labelledby="titulo-habilidades">
+            <div class="container">
 
-            <h1>Habilidades</h1>
+                <h1 id="titulo-habilidades">Habilidades</h1>
 
-            <p> Estas son algunas de las tecnologías y herramientas que
-                he utilizado y que actualmente me encuentro aprendiendo.</p>
+                <p>
+                    Estas son algunas de las tecnologías y herramientas
+                    que he utilizado durante mi formación. Actualmente
+                    continúo aprendiendo y desarrollando mis conocimientos
+                    en cada una de ellas.
+                </p>
 
+                <!-- Tecnologias y herramientas -->
+                <div class="row mt-4">
+
+                    <!-- Desarrollo web -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Desarrollo Web</h2>
+
+                                <p class="card-text">
+                                    HTML, CSS, JavaScript y Bootstrap.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Bases de datos -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Bases de Datos</h2>
+
+                                <p class="card-text">
+                                    MySQL, SQL Server y Oracle SQL.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Programacion -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Programación</h2>
+
+                                <p class="card-text">
+                                    C#, PHP y JavaScript.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Herramientas -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Herramientas</h2>
+
+                                <p class="card-text">
+                                    Visual Studio Code, Visual Studio,
+                                    MySQL Workbench, SQL Developer,
+                                    Unity, Git y GitHub.
+                                </p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </section>
 
     </main>
 
 
-
     <!-- Pie de pagina -->
     <footer>
-
         <p>&copy; 2026 Camila Martinez Toro - Mi portafolio.</p>
 
-
-        <p>Repositorio:
-            <a href="https://github.com/CamilaMartinez14" target="_blank" rel="noopener">
-                github.com/CamilaMartinez14 </a>
+        <p>
+            Repositorio:
+            <a href="https://github.com/CamilaMartinez14"
+                target="_blank"
+                rel="noopener">
+                github.com/CamilaMartinez14
+            </a>
         </p>
-
     </footer>
 
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mi JavaScript -->
     <script src="../js/script.js"></script>
 
 </body>

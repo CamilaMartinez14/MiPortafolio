@@ -55,11 +55,13 @@ nav {
 
 /* Nombre del portafolio */
 .logo {
+    color: var(--color-texto);
     font-size: 1.1rem;
     font-weight: bold;
+    text-decoration: none;
 }
 
-/* Elementos del menu */
+/* Menu de las paginas */
 nav ul {
     display: flex;
     gap: 30px;
@@ -69,10 +71,40 @@ nav ul {
 nav ul a {
     color: var(--color-secundario);
     font-size: 0.9rem;
+    text-decoration: none;
 }
 
 /* Efecto al pasar el mouse */
 nav ul a:hover {
+    color: var(--color-texto);
+}
+
+
+/* ==============================
+   NAVEGACION CON BOOTSTRAP
+   ============================== */
+
+/* Nombre en la barra Bootstrap */
+.navbar .navbar-brand {
+    color: var(--color-texto);
+}
+
+.navbar .navbar-brand:hover {
+    color: var(--color-texto);
+}
+
+/* Espacio entre las opciones */
+.navbar-nav {
+    gap: 25px;
+}
+
+/* Enlaces de Bootstrap */
+.navbar .nav-link {
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+}
+
+.navbar .nav-link:hover {
     color: var(--color-texto);
 }
 
@@ -126,9 +158,14 @@ nav ul a:hover {
 /* Botones de inicio */
 .botones-inicio a {
     padding: 14px 25px;
+
     border: 1px solid var(--color-borde);
     border-radius: 30px;
+
     background: rgba(255, 255, 255, 0.05);
+
+    color: var(--color-texto);
+    text-decoration: none;
 }
 
 /* Efecto de los botones */
@@ -148,14 +185,13 @@ section:not(#inicio) {
     padding: 140px 8% 80px;
 }
 
-/* Titulos */
-section:not(#inicio) h1,
-section:not(#inicio) h2 {
+/* Titulo principal de las paginas */
+section:not(#inicio) h1 {
     font-size: 3rem;
     margin-bottom: 25px;
 }
 
-/* Texto */
+/* Texto de las paginas */
 section:not(#inicio) p {
     color: var(--color-secundario);
     max-width: 650px;
@@ -165,12 +201,174 @@ section:not(#inicio) p {
 
 
 /* ==============================
-   footer
+   TARJETAS
    ============================== */
 
-/* Pie de pagina */
+/* Tarjetas de proyectos y habilidades */
+.card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    color: var(--color-texto);
+}
+
+/* Espacio dentro de las tarjetas */
+.card-body {
+    padding: 18px 20px;
+}
+
+/* Titulo de las tarjetas */
+.card-title {
+    color: var(--color-texto);
+    font-size: 1.35rem;
+    margin-bottom: 10px;
+}
+
+/* Texto de las tarjetas */
+.card .card-text {
+    color: var(--color-secundario);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+}
+
+
+/* ==============================
+   CONTACTO
+   ============================== */
+
+/* Tamaño de los formularios */
+#contacto .row {
+    max-width: 1100px;
+    
+}
+
+/* Tarjetas del contacto */
+#contacto .card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--color-borde);
+    border-radius: 18px;
+    color: var(--color-texto);
+}
+
+/* Espacio dentro de las tarjetas */
+#contacto .card-body {
+    padding: 16px 18px;
+}
+
+/* Titulo de los formularios */
+#contacto .card-title {
+    color: var(--color-texto);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+/* Texto de la tarjeta */
+#contacto .card-text {
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+}
+
+/* Etiquetas del formulario */
+#contacto .form-label,
+#contacto .form-check-label {
+    color: var(--color-texto);
+    font-size: 0.9rem;
+}
+
+/* Campos del formulario */
+#contacto .form-control,
+#contacto .form-select {
+    background-color: #21152d;
+    color: var(--color-texto);
+    border: 1px solid #4a3658;
+    font-size: 0.9rem;
+    padding: 7px 10px;
+}
+
+/* Texto de ejemplo dentro de los campos */
+#contacto .form-control::placeholder {
+    color: #a99caf;
+}
+
+/* Opciones del motivo */
+#contacto .form-select option {
+    background-color: #21152d;
+    color: var(--color-texto);
+}
+
+/* Cuando seleccionamos un campo */
+#contacto .form-control:focus,
+#contacto .form-select:focus {
+    background-color: #291a36;
+    color: var(--color-texto);
+    border-color: var(--color-acento-secundario);
+    box-shadow: none;
+}
+
+/* Tamaño de los mensajes */
+#contacto textarea {
+    max-height: 100px;
+}
+
+/* Botones del formulario */
+#contacto .btn {
+    background: transparent;
+    color: var(--color-texto);
+    border: 1px solid var(--color-texto);
+    font-size: 0.85rem;
+    padding: 7px 13px;
+}
+
+/* Efecto de los botones */
+#contacto .btn:hover {
+    background: var(--color-texto);
+    color: var(--color-fondo);
+}
+
+
+/* ==============================
+   PIE DE PAGINA
+   ============================== */
+
+/* Estilos del pie de pagina */
 footer {
     padding: 30px 8%;
     border-top: 1px solid var(--color-borde);
     color: var(--color-secundario);
+}
+
+/* Enlace del repositorio */
+footer a {
+    color: var(--color-secundario);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--color-texto);
+}
+
+
+/* ==============================
+   PANTALLAS PEQUEÑAS
+   ============================== */
+
+@media (max-width: 768px) {
+
+    /* Titulo de inicio */
+    #inicio h1 {
+        font-size: 3.5rem;
+    }
+
+    /* Botones uno debajo del otro */
+    .botones-inicio {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    /* Espacio de las paginas */
+    section:not(#inicio) {
+        padding: 130px 6% 60px;
+    }
+
 }
