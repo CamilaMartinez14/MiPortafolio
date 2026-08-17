@@ -1,4 +1,78 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ page import="java.sql.*" %>
+
+<%
+    // Datos para conectarme a la base de datos
+    String url = "jdbc:mysql://localhost:3306/portafolio_db";
+    String usuario = "portafolio_user";
+    String clave = System.getenv("PORTAFOLIO_DB_PASS");
+
+    String mensajeEstado = "";
+
+    // Guardo el formulario de contacto
+    if ("POST".equalsIgnoreCase(request.getMethod())
+            && request.getParameter("nombre") != null) {
+
+        String nombre = request.getParameter("nombre");
+        String correo = request.getParameter("correo");
+        String motivo = request.getParameter("motivo");
+        String mensaje = request.getParameter("mensaje");
+
+        try {
+            Connection conexion = DriverManager.getConnection(url, usuario, clave);
+
+            PreparedStatement consulta = conexion.prepareStatement(
+                "INSERT INTO mensajes_contacto " +
+                "(nombre, correo, motivo, mensaje, fecha_envio) " +
+                "VALUES (?, ?, ?, ?, NOW())"
+            );
+
+            consulta.setString(1, nombre);
+            consulta.setString(2, correo);
+            consulta.setString(3, motivo);
+            consulta.setString(4, mensaje);
+            consulta.executeUpdate();
+
+            mensajeEstado = "Mensaje enviado correctamente.";
+
+            consulta.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            mensajeEstado = "No se pudo guardar el mensaje.";
+        }
+    }
+
+    // Guardo el comentario
+    if ("POST".equalsIgnoreCase(request.getMethod())
+            && request.getParameter("nombreComentario") != null) {
+
+        String nombreComentario = request.getParameter("nombreComentario");
+        String comentario = request.getParameter("comentario");
+
+        try {
+            Connection conexion = DriverManager.getConnection(url, usuario, clave);
+
+            PreparedStatement consulta = conexion.prepareStatement(
+                "INSERT INTO comentarios " +
+                "(nombre, comentario, fecha_comentario) " +
+                "VALUES (?, ?, NOW())"
+            );
+
+            consulta.setString(1, nombreComentario);
+            consulta.setString(2, comentario);
+            consulta.executeUpdate();
+
+            mensajeEstado = "Comentario publicado correctamente.";
+
+            consulta.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            mensajeEstado = "No se pudo guardar el comentario.";
+        }
+    }
+%>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -13,7 +87,8 @@
     <link rel="stylesheet" href="../css/reset.css">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
     <!-- Mis estilos -->
     <link rel="stylesheet" href="../css/style.css">
@@ -37,38 +112,18 @@
                     aria-controls="menuPrincipal"
                     aria-expanded="false"
                     aria-label="Abrir menu">
-
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- Opciones del menu -->
                 <div class="collapse navbar-collapse" id="menuPrincipal">
                     <ul class="navbar-nav ms-auto">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Inicio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="proyectos.jsp">Proyectos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../paginas/habilidades.html">Habilidades</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../paginas/experiencias.html">Experiencias</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.jsp">Contacto</a>
-                        </li>
-
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="proyectos.jsp">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="habilidades.jsp">Habilidades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../paginas/experiencias.html">Experiencias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.jsp">Contacto</a></li>
                     </ul>
                 </div>
 
@@ -90,6 +145,10 @@
                     conmigo, puedes hacerlo mediante este formulario.
                 </p>
 
+                <% if (!mensajeEstado.equals("")) { %>
+                    <p><%= mensajeEstado %></p>
+                <% } %>
+
                 <!-- Formularios -->
                 <div class="row mt-4 justify-content-between">
 
@@ -100,90 +159,45 @@
 
                                 <h2 class="card-title">Envíame un mensaje</h2>
 
-                                <form action="#" method="post">
-
+                                <form action="contacto.jsp" method="post">
                                     <div class="row">
 
                                         <div class="col-md-6 mb-3">
-
-                                            <label for="nombre" class="form-label">
-                                                Nombre completo:
-                                            </label>
-
-                                            <input type="text"
-                                                class="form-control"
-                                                id="nombre"
-                                                name="nombre"
-                                                placeholder="Ej: Camila Martinez"
-                                                required>
-
+                                            <label for="nombre" class="form-label">Nombre completo:</label>
+                                            <input type="text" class="form-control"
+                                                id="nombre" name="nombre"
+                                                placeholder="Ej: Camila Martinez" required>
                                         </div>
 
                                         <div class="col-md-6 mb-3">
-
-                                            <label for="correo" class="form-label">
-                                                Correo:
-                                            </label>
-
-                                            <input type="email"
-                                                class="form-control"
-                                                id="correo"
-                                                name="correo"
-                                                placeholder="ejemplo@gmail.com"
-                                                required>
-
+                                            <label for="correo" class="form-label">Correo:</label>
+                                            <input type="email" class="form-control"
+                                                id="correo" name="correo"
+                                                placeholder="ejemplo@gmail.com" required>
                                         </div>
 
                                         <div class="col-12 mb-3">
+                                            <label for="motivo" class="form-label">Motivo:</label>
 
-                                            <label for="motivo" class="form-label">
-                                                Motivo:
-                                            </label>
-
-                                            <select class="form-select"
-                                                id="motivo"
-                                                name="motivo"
-                                                required>
-
-                                                <option value="" selected disabled>
-                                                    Selecciona una opción
-                                                </option>
-
-                                                <option value="proyecto">
-                                                    Consulta sobre un proyecto
-                                                </option>
-
-                                                <option value="trabajo">
-                                                    Interesado en crear un proyecto de trabajo
-                                                </option>
-
-                                                <option value="otro">
-                                                    Otro
-                                                </option>
-
+                                            <select class="form-select" id="motivo" name="motivo" required>
+                                                <option value="" selected disabled>Selecciona una opción</option>
+                                                <option value="proyecto">Consulta sobre un proyecto</option>
+                                                <option value="trabajo">Interesado en crear un proyecto de trabajo</option>
+                                                <option value="otro">Otro</option>
                                             </select>
-
                                         </div>
 
                                         <div class="col-12 mb-3">
-
-                                            <label for="mensaje" class="form-label">
-                                                Mensaje:
-                                            </label>
-
+                                            <label for="mensaje" class="form-label">Mensaje:</label>
                                             <textarea class="form-control"
-                                                id="mensaje"
-                                                name="mensaje"
+                                                id="mensaje" name="mensaje"
                                                 rows="5"
                                                 placeholder="Escribe tu mensaje aquí..."
                                                 required></textarea>
-
                                         </div>
 
                                         <div class="col-12 mb-3">
-
                                             <div class="form-check">
-
                                                 <input class="form-check-input"
                                                     type="checkbox"
                                                     id="confirmacion"
@@ -193,21 +207,16 @@
                                                 <label class="form-check-label" for="confirmacion">
                                                     Confirmo que los datos ingresados son correctos.
                                                 </label>
-
                                             </div>
-
                                         </div>
 
                                         <div class="col-12">
-
                                             <button type="submit" class="btn btn-outline-light">
                                                 Enviar mensaje
                                             </button>
-
                                         </div>
 
                                     </div>
-
                                 </form>
 
                             </div>
@@ -226,24 +235,20 @@
                                     Puedes dejarme un comentario sobre el portafolio.
                                 </p>
 
-                                <form action="#" method="post">
+                                <form action="contacto.jsp" method="post">
 
                                     <div class="mb-3">
-
                                         <label for="nombreComentario" class="form-label">
                                             Tu nombre:
                                         </label>
 
-                                        <input type="text"
-                                            class="form-control"
+                                        <input type="text" class="form-control"
                                             id="nombreComentario"
                                             name="nombreComentario"
                                             required>
-
                                     </div>
 
                                     <div class="mb-3">
-
                                         <label for="comentario" class="form-label">
                                             Comentario:
                                         </label>
@@ -253,7 +258,6 @@
                                             name="comentario"
                                             rows="4"
                                             required></textarea>
-
                                     </div>
 
                                     <button type="submit" class="btn btn-outline-light">
@@ -276,10 +280,7 @@
 
     <!-- Pie de pagina -->
     <footer>
-
-        <p>
-            &copy; 2026 Camila Martinez Toro - Mi portafolio.
-        </p>
+        <p>&copy; 2026 Camila Martinez Toro - Mi portafolio.</p>
 
         <p>
             Repositorio:
@@ -289,7 +290,6 @@
                 github.com/CamilaMartinez14
             </a>
         </p>
-
     </footer>
 
 

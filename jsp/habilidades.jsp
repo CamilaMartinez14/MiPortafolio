@@ -12,21 +12,18 @@
     ResultSet resultado = null;
 
     try {
-
-        // Intento realizar la conexion con MySQL
+        // Me conecto a MySQL
         conexion = DriverManager.getConnection(url, usuario, clave);
 
-        // Consulto los proyectos que tengo guardados
+        // Busco las habilidades guardadas
         consulta = conexion.prepareStatement(
-            "SELECT * FROM proyectos"
+            "SELECT * FROM habilidades"
         );
 
         resultado = consulta.executeQuery();
 
     } catch (SQLException e) {
-
-        out.println("Error al conectar con la base de datos.");
-
+        out.println("No se pudo conectar a la base de datos.");
     }
 %>
 
@@ -37,14 +34,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Proyectos | Camila Martinez Toro</title>
+    <title>Habilidades | Camila Martinez Toro</title>
     <meta name="description"
-        content="Proyectos realizados durante mi formación en Ingeniería en Informática.">
+        content="Tecnologías y herramientas utilizadas durante mi formación en Ingeniería en Informática.">
 
     <link rel="stylesheet" href="../css/reset.css">
 
     <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
     <!-- Mis estilos -->
     <link rel="stylesheet" href="../css/style.css">
@@ -68,39 +66,18 @@
                     aria-controls="menuPrincipal"
                     aria-expanded="false"
                     aria-label="Abrir menu">
-
                     <span class="navbar-toggler-icon"></span>
-
                 </button>
 
                 <!-- Opciones del menu -->
                 <div class="collapse navbar-collapse" id="menuPrincipal">
                     <ul class="navbar-nav ms-auto">
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../index.html">Inicio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="proyectos.jsp">Proyectos</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="habilidades.jsp">Habilidades</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="../paginas/experiencias.html">Experiencias</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contacto.jsp">Contacto</a>
-                        </li>
-
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="proyectos.jsp">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="habilidades.jsp">Habilidades</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../paginas/experiencias.html">Experiencias</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.jsp">Contacto</a></li>
                     </ul>
                 </div>
 
@@ -111,49 +88,41 @@
 
     <main>
 
-        <!-- Mis proyectos -->
-        <section id="proyectos" aria-labelledby="titulo-proyectos">
+        <!-- Habilidades -->
+        <section id="habilidades" aria-labelledby="titulo-habilidades">
             <div class="container">
 
-                <h1 id="titulo-proyectos">Proyectos</h1>
+                <h1 id="titulo-habilidades">Habilidades</h1>
 
                 <p>
-                    En esta sección presento algunos de los proyectos que he
-                    desarrollado durante mi formación en esta hermosa carrera
-                    que es Ingeniería en Informática.
+                    Estas son algunas de las tecnologías y herramientas
+                    que he utilizado durante mi formación. Actualmente
+                    continúo aprendiendo y desarrollando mis conocimientos
+                    en cada una de ellas.
                 </p>
 
-
-                <!-- Tarjetas de proyectos -->
+                <!-- Tecnologias y herramientas -->
                 <div class="row mt-4">
 
                     <%
-                        // Recorro los proyectos que tengo guardados
+                        // Recorro las habilidades guardadas
                         while (resultado != null && resultado.next()) {
                     %>
 
                         <div class="col-md-6 mb-4">
-
                             <div class="card h-100">
-
                                 <div class="card-body">
 
                                     <h2 class="card-title">
-                                        <%= resultado.getString("nombre") %>
+                                        <%= resultado.getString("categoria") %>
                                     </h2>
 
                                     <p class="card-text">
                                         <%= resultado.getString("descripcion") %>
                                     </p>
 
-                                    <p class="card-text">
-                                        Utilicé <%= resultado.getString("tecnologias") %>.
-                                    </p>
-
                                 </div>
-
                             </div>
-
                         </div>
 
                     <%
@@ -171,9 +140,7 @@
     <!-- Pie de pagina -->
     <footer>
 
-        <p>
-            &copy; 2026 Camila Martinez Toro - Mi portafolio.
-        </p>
+        <p>&copy; 2026 Camila Martinez Toro - Mi portafolio.</p>
 
         <p>
             Repositorio:
