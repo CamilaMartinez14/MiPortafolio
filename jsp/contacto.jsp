@@ -1,0 +1,304 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Camila Martinez Toro</title>
+    <meta name="description" content="Página de contacto de Camila Martinez Toro">
+
+    <link rel="stylesheet" href="../css/reset.css">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Mis estilos -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navegacion principal -->
+    <header>
+        <nav class="navbar navbar-expand-md" aria-label="Navegación principal">
+            <div class="container">
+
+                <a class="navbar-brand logo" href="../index.html">
+                    Camila Martinez Toro
+                </a>
+
+                <!-- Boton para pantallas pequeñas -->
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal"
+                    aria-controls="menuPrincipal"
+                    aria-expanded="false"
+                    aria-label="Abrir menu">
+
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Opciones del menu -->
+                <div class="collapse navbar-collapse" id="menuPrincipal">
+                    <ul class="navbar-nav ms-auto">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="proyectos.jsp">Proyectos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../paginas/habilidades.html">Habilidades</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../paginas/experiencias.html">Experiencias</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.jsp">Contacto</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Contacto -->
+        <section id="contacto" aria-labelledby="titulo-contacto">
+            <div class="container">
+
+                <h1 id="titulo-contacto">Contacto</h1>
+
+                <p>
+                    Si quieres conocer más sobre mis proyectos o ponerte en contacto
+                    conmigo, puedes hacerlo mediante este formulario.
+                </p>
+
+                <!-- Formularios -->
+                <div class="row mt-4 justify-content-between">
+
+                    <!-- Formulario de contacto -->
+                    <div class="col-lg-6 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Envíame un mensaje</h2>
+
+                                <form action="#" method="post">
+
+                                    <div class="row">
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label for="nombre" class="form-label">
+                                                Nombre completo:
+                                            </label>
+
+                                            <input type="text"
+                                                class="form-control"
+                                                id="nombre"
+                                                name="nombre"
+                                                placeholder="Ej: Camila Martinez"
+                                                required>
+
+                                        </div>
+
+                                        <div class="col-md-6 mb-3">
+
+                                            <label for="correo" class="form-label">
+                                                Correo:
+                                            </label>
+
+                                            <input type="email"
+                                                class="form-control"
+                                                id="correo"
+                                                name="correo"
+                                                placeholder="ejemplo@gmail.com"
+                                                required>
+
+                                        </div>
+
+                                        <div class="col-12 mb-3">
+
+                                            <label for="motivo" class="form-label">
+                                                Motivo:
+                                            </label>
+
+                                            <select class="form-select"
+                                                id="motivo"
+                                                name="motivo"
+                                                required>
+
+                                                <option value="" selected disabled>
+                                                    Selecciona una opción
+                                                </option>
+
+                                                <option value="proyecto">
+                                                    Consulta sobre un proyecto
+                                                </option>
+
+                                                <option value="trabajo">
+                                                    Interesado en crear un proyecto de trabajo
+                                                </option>
+
+                                                <option value="otro">
+                                                    Otro
+                                                </option>
+
+                                            </select>
+
+                                        </div>
+
+                                        <div class="col-12 mb-3">
+
+                                            <label for="mensaje" class="form-label">
+                                                Mensaje:
+                                            </label>
+
+                                            <textarea class="form-control"
+                                                id="mensaje"
+                                                name="mensaje"
+                                                rows="5"
+                                                placeholder="Escribe tu mensaje aquí..."
+                                                required></textarea>
+
+                                        </div>
+
+                                        <div class="col-12 mb-3">
+
+                                            <div class="form-check">
+
+                                                <input class="form-check-input"
+                                                    type="checkbox"
+                                                    id="confirmacion"
+                                                    name="confirmacion"
+                                                    required>
+
+                                                <label class="form-check-label" for="confirmacion">
+                                                    Confirmo que los datos ingresados son correctos.
+                                                </label>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-12">
+
+                                            <button type="submit" class="btn btn-outline-light">
+                                                Enviar mensaje
+                                            </button>
+
+                                        </div>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Comentarios -->
+                    <div class="col-lg-5 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+
+                                <h2 class="card-title">Deja un comentario</h2>
+
+                                <p class="card-text">
+                                    Puedes dejarme un comentario sobre el portafolio.
+                                </p>
+
+                                <form action="#" method="post">
+
+                                    <div class="mb-3">
+
+                                        <label for="nombreComentario" class="form-label">
+                                            Tu nombre:
+                                        </label>
+
+                                        <input type="text"
+                                            class="form-control"
+                                            id="nombreComentario"
+                                            name="nombreComentario"
+                                            required>
+
+                                    </div>
+
+                                    <div class="mb-3">
+
+                                        <label for="comentario" class="form-label">
+                                            Comentario:
+                                        </label>
+
+                                        <textarea class="form-control"
+                                            id="comentario"
+                                            name="comentario"
+                                            rows="4"
+                                            required></textarea>
+
+                                    </div>
+
+                                    <button type="submit" class="btn btn-outline-light">
+                                        Publicar comentario
+                                    </button>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Pie de pagina -->
+    <footer>
+
+        <p>
+            &copy; 2026 Camila Martinez Toro - Mi portafolio.
+        </p>
+
+        <p>
+            Repositorio:
+            <a href="https://github.com/CamilaMartinez14"
+                target="_blank"
+                rel="noopener">
+                github.com/CamilaMartinez14
+            </a>
+        </p>
+
+    </footer>
+
+
+    <!-- JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Mi JavaScript -->
+    <script src="../js/script.js"></script>
+
+</body>
+
+</html>
