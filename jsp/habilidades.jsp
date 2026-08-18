@@ -66,18 +66,39 @@
                     aria-controls="menuPrincipal"
                     aria-expanded="false"
                     aria-label="Abrir menu">
+
                     <span class="navbar-toggler-icon"></span>
+
                 </button>
 
                 <!-- Opciones del menu -->
                 <div class="collapse navbar-collapse" id="menuPrincipal">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a></li>
-                        <li class="nav-item"><a class="nav-link" href="proyectos.jsp">Proyectos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="habilidades.jsp">Habilidades</a></li>
-                        <li class="nav-item"><a class="nav-link" href="../paginas/experiencias.html">Experiencias</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contacto.jsp">Contacto</a></li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../paginas/sobre_mi.html">Sobre mí</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="proyectos.jsp">Proyectos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="habilidades.jsp">Habilidades</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="../paginas/experiencias.html">Experiencias</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.jsp">Contacto</a>
+                        </li>
+
                     </ul>
                 </div>
 
@@ -111,6 +132,7 @@
 
                         <div class="col-md-6 mb-4">
                             <div class="card h-100">
+
                                 <div class="card-body">
 
                                     <h2 class="card-title">
@@ -122,6 +144,7 @@
                                     </p>
 
                                 </div>
+
                             </div>
                         </div>
 
@@ -137,10 +160,24 @@
     </main>
 
 
+    <!-- Boton para volver al inicio -->
+    <div class="container text-center mb-4">
+
+        <button id="botonArriba"
+            type="button"
+            class="btn btn-outline-light">
+            Volver arriba
+        </button>
+
+    </div>
+
+
     <!-- Pie de pagina -->
     <footer>
 
-        <p>&copy; 2026 Camila Martinez Toro - Mi portafolio.</p>
+        <p>
+            &copy; 2026 Camila Martinez Toro - Mi portafolio.
+        </p>
 
         <p>
             Repositorio:
