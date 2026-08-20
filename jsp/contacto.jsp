@@ -4,7 +4,11 @@
 <%
     // Datos para conectarme a la base de datos
     String url = "jdbc:mysql://localhost:3306/portafolio_db";
-    String usuario = "portafolio_user";
+    
+     // Tomo el usuario desde una variable de entorno
+    String usuario = System.getenv("PORTAFOLIO_DB_USER");
+
+    // Tomo la clave desde una variable de entorno para no dejarla escrita en el codigo
     String clave = System.getenv("PORTAFOLIO_DB_PASS");
 
     String mensajeEstado = "";
@@ -58,7 +62,7 @@
                 "(nombre, comentario, fecha_comentario) " +
                 "VALUES (?, ?, NOW())"
             );
-
+             //seteo los valores de los parametros para la consulta SQL
             consulta.setString(1, nombreComentario);
             consulta.setString(2, comentario);
             consulta.executeUpdate();

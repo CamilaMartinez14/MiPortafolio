@@ -4,8 +4,13 @@
 <%
     // Datos para conectarme a la base de datos
     String url = "jdbc:mysql://localhost:3306/portafolio_db";
-    String usuario = "portafolio_user";
-    String clave = System.getenv("PORTAFOLIO_DB_PASS");
+
+    // Tomo el usuario desde una variable de entorno
+    String usuario = System.getenv("PORTAFOLIO_DB_USER"); 
+    
+    // Tomo la clave desde una variable de entorno para no dejarla escrita en el codigo
+    String clave = System.getenv("PORTAFOLIO_DB_PASS"); 
+    
 
     Connection conexion = null;
     PreparedStatement consulta = null;
